@@ -1,107 +1,48 @@
-# Express Authentication
+# Libros - Capstone Project
 
-Express authentication template using Passport + flash messages + custom middleware
 
-## What it includes
+## Project Description 
+Libros is a full-stack application that a book lover can use to catalogue their books by creating a virtual library. Libros allows the user to create a library/bookshelf by adding books using a search bar. 
 
-* Sequelize user model / migration
-* Settings for PostgreSQL
-* Passport and passport-local for authentication
-* Sessions to keep user logged in between pages
-* Flash messages for errors and successes
-* Passwords that are hashed with BCrypt
-* EJS Templating and EJS Layouts
+The user search a book by title and chooses form the displayed list of results. The results are books displaying a title, author and image. Each result has a button that saves the book to the user’s library.
 
-### User Model
+The library displays images of book covers and its titles, when the user clicks a book cover, a new page displays detailed information of the book. In this page the user can write comments about the book, rate the book, add a reading date and indicate if the book has been read completely. 
 
-| Column Name | Data Type | Notes |
-| --------------- | ------------- | ------------------------------ |
-| id | Integer | Serial Primary Key, Auto-generated |
-| name | String | Must be provided |
-| email | String | Must be unique / used for login |
-| password | String | Stored as a hash |
-| createdAt | Date | Auto-generated |
-| updatedAt | Date | Auto-generated |
+The user has the ability to delete a book from the library, organize the library alphabetically by genre/category, by title, or by author.
 
-### Default Routes
+## Technologies used
 
-| Method | Path | Location | Purpose |
-| ------ | ---------------- | -------------- | ------------------- |
-| GET | / | server.js | Home page |
-| GET | /auth/login | auth.js | Login form |
-| GET | /auth/signup | auth.js | Signup form |
-| POST | /auth/login | auth.js | Login user |
-| POST | /auth/signup | auth.js | Creates User |
-| GET | /auth/logout | auth.js | Removes session info |
-| GET | /profile | server.js | Regular User Profile |
+## Installation Instructions
+1. Fork and clone the repo to your local machine.
+2. Install node modules from the package.json
+3. Create a database for the project
 
-## Steps To Use
 
-#### 1. Create a new repo on Github and use your 'express-authentication' as the template
+## User Stories
+### MVP Goals
+- As a user, I want to populate my library easily and fast by searching a book by title
+- As a user, I want to choose the book I want to add to my library 
+- As a user, I would like to see the books in my library as a list or as book covers 
+- As a user, I want an option to see more information about each book.
+- As a user, I want to add my own comments or a review to my book.
+- As a user, I want to rate my books 
+- As a user, I want to organize my library by author, title or category
+- As a user, I want to mark a book as “finish reading”
 
-When we are finished with this boilerplate, we are going to make it a template on Github that will allow us to create a new repo on Github with all this code already loaded in.
-* Go to `github.com` and create a new repository. In the template dropdown, choose this template.
-* Clone your new repo to your local machine
-* Get Codin'!
+### Stretch Goals
+- As a user, I would like to use this app on mobile devices.
+- As a user, I would like to know if a book is loaned and to whom
+- As a user, I would like to know the expiration date of a borrowed book 
+- As a user, I would like to have a list of “wanted” books with a link to buy them
+- As a user, I would like to have a list of books that my friends want/like
+- As a user, I would like to pick the bookshelf appearance.
 
-#### 2. Delete any .keep files
 
-The `.keep` files are there to maintain the file structure of the auth. If there is a folder that has nothing in it, git won't add it. The dev work around is to add a file to it that has nothing in it, just forces git to keep the folder so we can use it later.
+## Wireframes
 
-#### 3. Install node modules from the package.json
+## ERD
 
-```
-npm install
-```
+## Future Features
 
-(Or just `npm i` for short)
 
-#### 4. Customize with new project name
 
-Remove defaulty type stuff. Some areas to consider are:
-
-* Title in `layout.ejs`
-* Description/Repo Link in `package.json`
-* Remove boilerplate's README content and replace with new project's readme
-
-#### 5. Create a new database for the new project
-
-Using the sequelize command line interface, you can create a new database from the terminal.
-
-```
-createdb <new_db_name>
-```
-
-#### 6. Update `config.json`
-
-* Change the database name
-* Other settings are likely okay, but check username, password, and dialect
-
-#### 7. Check the models and migrations for relevance to your project's needs
-
-For example, if your project requires a birthdate field, then don't add that in there. 
-
-> When changing your models, update both the model and the migration.
-
-#### 8. Run the migrations
-
-```
-sequelize db:migrate
-```
-
-#### 9. Add a `.env` file with the following fields:
-
-* SESSION_SECRET: Can be any random string; usually a hash in production
-* PORT: Usually 3000 or 8000
-
-#### 10. Run server; make sure it works
-
-```
-nodemon
-```
-
-or
-
-```
-node index.js
-```
