@@ -1,12 +1,15 @@
+
 <% if (books ) {%> 
   <ul>
     <% books.forEach(book => { %> 
     
         
       <li>
-        <a href="/library/<%= book.id %>"><%= book.title %> by <%= book.author %></a> 
+        <a href="/library/<%= book.id %>"><%= book.title %> by <%= book.authorId %></a> 
       <li> <img src="<%= book.image %>" alt=""> </li>
-      
+      <form method="POST" action="/library/<%= book.id %>?_method=DELETE">
+        <button type="submit">Delete</button>
+      </form>
 
     <% }) %> 
   </ul>
