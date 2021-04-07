@@ -2,6 +2,7 @@ const router = require('express').Router()
 const passport = require('../config/ppConfig')
 const db = require("../models")
 const axios = require('axios')
+const { route } = require('./home')
 
 //Get - /library show all boooks to the user
 router.get('/', function(req, res) {
@@ -12,10 +13,24 @@ router.get('/', function(req, res) {
        //render the view and pass the found books
       res.render('library/index.ejs', {books: foundBooks})
   })
-  
- 
  
 })
+
+//GET -/library/:id
+//show detail info of a book
+router.get('/:id', function(req, res) {
+  db.book.findByPk(req.params.id)
+  .then((foundBook)=> {
+    res.render('library/show.ejs', { book: foundBook})
+  })
+  .catch(function(error){
+    console.log(error)
+    res.send('Error!')
+  })
+})
+
+
+
 
 //POST /library save a book to the library
 router.post('/', function(req, res) {
@@ -24,16 +39,21 @@ router.post('/', function(req, res) {
   //call database and add a book via find or create
   db.book.findOrCreate({
     where: {
-      isbn: req.body.isbn,
-      
+      title: req.body.title,
+      image: req.body.image,
+      description: req.body.description
     },
     defaults: {
-      title: req.body.title
+      isbn: req.body.isbn
     }
 
   }).then(([book, created]) => {
     res.redirect('/library')
 
+  })
+  .catch(function(error){
+    console.log(error)
+    res.send('Error!')
   })
 })
 
