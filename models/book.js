@@ -26,7 +26,13 @@ module.exports = (sequelize, DataTypes) => {
     pageCount: DataTypes.INTEGER,
     publisher: DataTypes.STRING,
     publishedDate: DataTypes.STRING,
-    authorId: DataTypes.INTEGER
+    authorId:{
+      type:DataTypes.INTEGER,
+      references: {
+        model: 'authors', 
+        key: 'id'
+      }
+    } 
   }, {
     sequelize,
     modelName: 'book',
