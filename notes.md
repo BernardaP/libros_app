@@ -2,7 +2,7 @@ model:create statements and associations:
 
 sequelize model:create --name library --attributes comments:text,readingDate:date,rating:integer,completed:boolean,userId:integer 
 
-sequelize model:create --name book --attributes title:string,description:text,image:string,price:smallmoney,ebook:boolean,buy:string,isbn:string,pageCount:integer,publisher:string,publishedDate:string,authorId:integer
+sequelize model:create --name book --attributes title:string,description:text,image:string,price:float,ebook:boolean,buy:string,isbn:string,pageCount:integer,publisher:string,publishedDate:string,authorId:integer
 
 sequelize model:create --name booksLibraries --attributes bookId:integer,libraryId:integer
 
