@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const layouts = require('express-ejs-layouts');
+const methodOverride = require('method-override');
 const session = require('express-session');
 const flash = require("connect-flash")
 const passport = require('./config/ppConfig');
@@ -12,10 +13,11 @@ const app = express();
 
 //Middleware
 app.set('view engine', 'ejs');
+app.use(methodOverride('_method'));
 app.use(require('morgan')('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
-app.use(favicon(path.join(__dirname + '/public/assets/images/favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.use(layouts);
 
 app.use(session({
@@ -53,9 +55,9 @@ app.get('/profile', isLoggedIn, (req, res) => {
   res.render('profile');
 });
 
-app.use('/auth', require('./routes/auth'));
-app.use('/home', require('./routes/home'));
-app.use('/library', require('./routes/library'));
+app.use('/auth', isLoggedIn, require('./routes/auth'));
+app.use('/home', isLoggedIn, require('./routes/home'));
+app.use('/library', isLoggedIn, require('./routes/library'));
 
 var server = app.listen(process.env.PORT || 3000, ()=> console.log(`🎧You're listening to the smooth sounds of port ${process.env.PORT || 3000}🎧`));
 
