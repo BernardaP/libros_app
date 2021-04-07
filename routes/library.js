@@ -4,7 +4,7 @@ const db = require("../models")
 const axios = require('axios')
 const { route } = require('./home')
 
-//Get - /library show all boooks to the user
+//Get - /library show all books added to library 
 router.get('/', function(req, res) {
   //find all the books in db
   db.book.findAll()
@@ -18,9 +18,26 @@ router.get('/', function(req, res) {
 
 //GET -/library/:id
 //show detail info of a book
+// router.get('/:id', function(req, res) {
+//   db.book.findByPk(req.params.id)
+//   .then((foundBook)=> {
+//     res.render('library/show.ejs', { book: foundBook})
+//   })
+//   .catch(function(error){
+//     console.log(error)
+//     res.send('Error!')
+//   })
+// })
 router.get('/:id', function(req, res) {
-  db.book.findByPk(req.params.id)
-  .then((foundBook)=> {
+  db.book.findOne({
+    where: {
+      id: req.params.id
+    },
+    include: [db.author]
+  })
+  .then((foundBook) => {
+    if (!foundBook) throw Error()
+    console.log("===------+++", foundBook)
     res.render('library/show.ejs', { book: foundBook})
   })
   .catch(function(error){
@@ -28,7 +45,6 @@ router.get('/:id', function(req, res) {
     res.send('Error!')
   })
 })
-
 
 
 
@@ -47,7 +63,20 @@ router.post('/', function(req, res) {
       isbn: req.body.isbn
     }
 
-  }).then(([book, created]) => {
+  }).then(function ([book, created]) {
+    // console.log("%%%%%%%%%%%%%",book)
+    db.author.findOrCreate({
+      where: {
+        firstName: req.body.author
+      }
+    }).then(function([author, created]) {
+      console.log("%%%%%%%%%%%%%",author)
+      author.addBook(book).then(function(relationInfo){ 
+      // book.addAuthor(author.id).then(function(relationInfo){ 
+        console.log('===========AUTHOR', author.firstName, "added to ", book.title)
+      })
+
+    })
     res.redirect('/library')
 
   })
@@ -57,5 +86,14 @@ router.post('/', function(req, res) {
   })
 })
 
+
+// POST - delete a book from library
+router.delete('/:id', function(req, res) {
+  db.book.destroy({
+    where: {id: req.params.id}
+  }).then(function(){
+    res.redirect('/library')
+  })
+})
 
 module.exports = router;
