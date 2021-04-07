@@ -7,11 +7,11 @@ const axios = require('axios')
 //Routes
 //GET - / 
 router.get('/', function(req, res) {
-  console.log(req.query)
+  // console.log(req.query)
   // const search_term = "Double cross"
-  const apiUrl = 'https://www.googleapis.com/books/v1/volumes';
+  // const apiUrl = 'https://www.googleapis.com/books/v1/volumes';
   // Use request to call the API
-  axios.get(apiUrl, { 
+  axios.get(process.env.API_URL, { 
     params: {
       q: req.query.title || "Double cross"
     }
