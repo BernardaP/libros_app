@@ -6,13 +6,37 @@ const { route } = require('./home')
 
 //Get - /library show all books added to library 
 router.get('/', function(req, res) {
+  console.log("hello")
   //find all the books in db
-  db.book.findAll()
-    .then((foundBooks) => {
-      console.log("+++++++",foundBooks)
-       //render the view and pass the found books
-      res.render('library/index.ejs', {books: foundBooks})
+  console.log("HERE>>>>>>", req.user)
+  db.user.findOne({
+    where: {
+      id: req.user.id
+    },
+    include: [db.book]
+  }). then((user)=> {
+    // console.log("*******", user)
+    res.render('library/index.ejs', { user: user })
   })
+
+  // db.book.findAll({
+  //   include: [db.author]
+  // })
+  //   .then((foundBooks) => {
+  //     db.author.findAll()
+  //     .then((authors) => {
+  //       db.user.findOne({
+  //         where: {
+  //           id: req.user.id
+  //         }
+  //     }).then((user) => {
+  //       res.render('library/index.ejs', {books: foundBooks, author: authors, user: user })
+
+  //     })
+    // })
+      // console.log("+++++++",foundBooks)
+       //render the view and pass the found books
+  // })
  
 })
 
@@ -72,8 +96,18 @@ router.post('/', function(req, res) {
     }).then(function([author, created]) {
       console.log("%%%%%%%%%%%%%",author)
       author.addBook(book).then(function(relationInfo){ 
+        
+        db.user.findOne({
+          where: {
+            id: req.user.id
+          }
+        }).then((user) => {
+          user.addBook(book).then(function(relationInfo){
+            // res.redirect('/library')
+          })
+        })  
       // book.addAuthor(author.id).then(function(relationInfo){ 
-        console.log('===========AUTHOR', author.firstName, "added to ", book.title)
+        // console.log('===========AUTHOR', author.firstName, "added to ", book.title)
       })
 
     })
@@ -82,7 +116,7 @@ router.post('/', function(req, res) {
   })
   .catch(function(error){
     console.log(error)
-    res.send('Error!')
+    res.send('Error ;(!')
   })
 })
 
