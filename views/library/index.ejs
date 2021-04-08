@@ -5,7 +5,10 @@
     
         
       <li>
-        <a href="/library/<%= book.id %>"><%= book.title %> by <%= book.authorId %></a> 
+        <a href="/library/<%= book.id %>"><%= book.title %> by 
+          <% if ( book.author) {%> 
+          <%= book.author.firstName %></a>
+          <% } %>  
       <li> <img src="<%= book.image %>" alt=""> </li>
       <form method="POST" action="/library/<%= book.id %>?_method=DELETE">
         <button type="submit">Delete</button>
