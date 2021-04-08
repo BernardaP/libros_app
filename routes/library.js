@@ -6,7 +6,7 @@ const { route } = require('./home')
 
 //Get - /library show all books added to library 
 router.get('/', function(req, res) {
-  console.log("hello")
+  // console.log("hello")
   //find all the books in db
   console.log("HERE>>>>>>", req.user)
   db.user.findOne({
@@ -15,7 +15,7 @@ router.get('/', function(req, res) {
     },
     include: [db.book]
   }). then((user)=> {
-    // console.log("*******", user)
+    console.log("*******", user)
     res.render('library/index.ejs', { user: user })
   })
 
@@ -33,9 +33,9 @@ router.get('/', function(req, res) {
   //       res.render('library/index.ejs', {books: foundBooks, author: authors, user: user })
 
   //     })
-    // })
-      // console.log("+++++++",foundBooks)
-       //render the view and pass the found books
+  //   })
+  //     //console.log("+++++++",foundBooks)
+  //     // render the view and pass the found books
   // })
  
 })
