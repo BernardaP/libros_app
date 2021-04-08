@@ -58,6 +58,7 @@ app.get('/profile', isLoggedIn, (req, res) => {
 app.use('/auth', require('./routes/auth'));
 app.use('/home', isLoggedIn, require('./routes/home'));
 app.use('/library', isLoggedIn, require('./routes/library'));
+app.use('/bookreview', isLoggedIn, require('./routes/bookreview'));
 
 var server = app.listen(process.env.PORT || 3000, ()=> console.log(`🎧You're listening to the smooth sounds of port ${process.env.PORT || 3000}🎧`));
 
