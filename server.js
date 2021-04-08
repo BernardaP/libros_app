@@ -55,7 +55,7 @@ app.get('/profile', isLoggedIn, (req, res) => {
   res.render('profile');
 });
 
-app.use('/auth', isLoggedIn, require('./routes/auth'));
+app.use('/auth', require('./routes/auth'));
 app.use('/home', isLoggedIn, require('./routes/home'));
 app.use('/library', isLoggedIn, require('./routes/library'));
 
