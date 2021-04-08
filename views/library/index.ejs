@@ -1,7 +1,7 @@
 
-<% if (books ) {%> 
+<% if (user.books  ) {%> 
   <ul>
-    <% books.forEach(book => { %> 
+    <% user.books.forEach(book => { %> 
     
         
       <li>
@@ -17,6 +17,7 @@
     <% }) %> 
   </ul>
 <% } else {%>
+  
   <p>Library is empty</p>  
   
 <% } %> 
