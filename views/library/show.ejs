@@ -2,6 +2,7 @@
 
 <img src="<%= book.image %>" alt="">
 <h2> <%= book.title %>  </h2>
+<h2> <%= book.author.firstName %>  </h2>
 
 
 
@@ -10,6 +11,20 @@
 
 <h3>My Review</h3>
 
+<form  method="POST" action="/bookreview">
+  <input type="hidden" name="bookId" value="<%= book.id  %>">
+  <label for="bookreview">Review</label>
+  <textarea name="bookreview" id="bookreview" cols="30" rows="10"></textarea>
+  <label for="completed">Finished reading</label>
+  <input type="checkbox" name="completed" id="completed" value="true">
+  <label for="rating">My Rating</label>
+  <input type="number" name="rating" id="rating" max="5">
+  <!-- <label for="loaned">Loaned to</label>
+  <input type="text" name="loaned" id="loaned">
+  <label for="loandate">Loan Date</label>
+  <input type="date" name="loanDate" id="loandate"> -->
+  <button type="submit">Save</button>
+</form>
 
 <p>Finished Reading</p>
 
