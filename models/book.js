@@ -12,7 +12,9 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       models.book.belongsToMany(models.library, {through: 'booksLibraries'})
       models.book.belongsTo(models.author);
+      models.book.belongsTo(models.user);
       models.book.belongsToMany(models.genre, {through: 'booksGenres'})
+
     }
   };
   book.init({
@@ -32,7 +34,14 @@ module.exports = (sequelize, DataTypes) => {
         model: 'authors', 
         key: 'id'
       }
-    } 
+    },
+    userId:{
+      type:DataTypes.INTEGER,
+      references: {
+        model: 'users', 
+        key: 'id'
+      }
+    }
   }, {
     sequelize,
     modelName: 'book',
