@@ -9,9 +9,9 @@
 <h3>Description</h3>
 <p><%= book.description %> </p>
 
-<h3>My Review</h3>
 
-<form  method="POST" action="/bookreview">
+
+<form  method="POST" action="/bookreview/<%= book.id  %>">
   <input type="hidden" name="bookId" value="<%= book.id  %>">
   <label for="bookreview">Review</label>
   <textarea name="bookreview" id="bookreview" cols="30" rows="10"></textarea>
@@ -19,15 +19,28 @@
   <input type="checkbox" name="completed" id="completed" value="true">
   <label for="rating">My Rating</label>
   <input type="number" name="rating" id="rating" max="5">
-  <!-- <label for="loaned">Loaned to</label>
+  <label for="loaned">Loaned to</label>
   <input type="text" name="loaned" id="loaned">
-  <label for="loandate">Loan Date</label>
-  <input type="date" name="loanDate" id="loandate"> -->
+  <label for="loanedDate">Loan Date</label>
+  <input type="date" name="loanedDate" id="loandate">
   <button type="submit">Save</button>
 </form>
 
+<h3>My Review</h3>
+<p>
+  <%= book.comments %> 
+
+</p>
+
+ 
+
 <p>Finished Reading</p>
+<p><%= book.completed  %> </p>
 
 <p>My Rating</p>
+<p><%= book.rating %> </p>
+
 <p>Loaned to:</p>
+<p><%= book.loaned %> </p>
 <p>Loaned Date:</p>
+<p><%= book.loanedDate %> </p>
