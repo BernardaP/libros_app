@@ -45,7 +45,7 @@ router.get('/', function(req, res) {
 
 
 //POST - / to save a review
-router.post('/', function(req, res) {
+router.post('/:id', function(req, res) {
   
   let completed
 
@@ -55,21 +55,23 @@ router.post('/', function(req, res) {
     completed = req.body.completed
   }
 
-  db.library.findOrCreate({
+  db.book.findOne({
     where: {
+      
+      id: req.params.id
+    }
+    
+    
+
+  }).then(function (book) {
+    console.log("----&&&&&&&&&&",book)
+    book.update({
       comments: req.body.bookreview,
       completed: completed,
       rating: req.body.rating,
-
-    },
-    defaults: {
-      userId: req.user.id
-    },
-    include: [ db.book ]
-
-  }).then(function ([library, created]) {
-    console.log("----&&&&&&&&&&",library.books)
-    
+      loaned: req.body.loaned,
+      loanedDate: req.body.loanedDate
+    })
     res.redirect(`/library/${req.body.bookId}`)
   })
   .catch(function(error){
