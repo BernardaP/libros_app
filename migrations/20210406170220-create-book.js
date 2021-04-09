@@ -38,6 +38,24 @@ module.exports = {
       publishedDate: {
         type: Sequelize.STRING
       },
+      readingDate: {
+        type: Sequelize.DATE
+      },
+      comments: {
+        type: Sequelize.TEXT
+      },
+      loaned: {
+        type: Sequelize.TEXT
+      },
+      loanedDate: {
+        type: Sequelize.DATE
+      },
+      rating: {
+        type: Sequelize.INTEGER
+      },
+      completed: {
+        type: Sequelize.BOOLEAN
+      },
       authorId: {
         type: Sequelize.INTEGER
       },
