@@ -57,7 +57,7 @@ router.get('/:id', function(req, res) {
     where: {
       id: req.params.id
     },
-    include: [db.author]
+    include: [db.author ]
   })
   .then((foundBook) => {
     if (!foundBook) throw Error()
@@ -103,7 +103,7 @@ router.post('/', function(req, res) {
           }
         }).then((user) => {
           user.addBook(book).then(function(relationInfo){
-            // res.redirect('/library')
+            res.redirect('/library')
           })
         })  
       // book.addAuthor(author.id).then(function(relationInfo){ 
@@ -111,7 +111,7 @@ router.post('/', function(req, res) {
       })
 
     })
-    res.redirect('/library')
+    // res.redirect('/library')
 
   })
   .catch(function(error){
