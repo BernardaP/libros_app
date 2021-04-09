@@ -1,23 +1,27 @@
+<a href="/home">Add a Book</a>
 
-<% if (user.books  ) {%> 
+
+<% if (user.books.length < 1) {%> 
+  <p>Library is empty</p>  
+  
+
+<% } else { %>
   <ul>
     <% user.books.forEach(book => { %> 
-    
-        
-      <li>
-        <a href="/library/<%= book.id %>"><%= book.title %> by 
-          <% if ( book.author) {%> 
-          <%= book.author.firstName %></a>
-          <% } %>  
-      <li> <img src="<%= book.image %>" alt=""> </li>
-      <form method="POST" action="/library/<%= book.id %>?_method=DELETE">
-        <button type="submit">Delete</button>
-      </form>
-
+      
+          
+        <li>
+          <a href="/library/<%= book.id %>"><%= book.title %> 
+            <% if ( book.author) {%> 
+            <%= book.author.firstName %></a>
+            <% } %>  
+        </li>    
+        <li> <img src="<%= book.image %>" alt=""> </li>
+        <form method="POST" action="/library/<%= book.id %>?_method=DELETE">
+          <button type="submit">Delete</button>
+        </form>
     <% }) %> 
-  </ul>
-<% } else {%>
+    </ul>
   
-  <p>Library is empty</p>  
   
 <% } %> 
