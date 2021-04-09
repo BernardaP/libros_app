@@ -48,6 +48,7 @@ module.exports = {
         type: Sequelize.TEXT
       },
       loanedDate: {
+        allowNull: true,
         type: Sequelize.DATE
       },
       rating: {
