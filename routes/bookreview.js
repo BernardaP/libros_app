@@ -55,6 +55,13 @@ router.post('/:id', function(req, res) {
     completed = req.body.completed
   }
 
+  // let loanedDate
+  // if ( req.body.loanedDate === 'Invalid date') {
+  //   loanedDate = null
+  // } else {
+  //   loanedDate = req.body.loanedDate
+  // }
+
   db.book.findOne({
     where: {
       
@@ -70,7 +77,7 @@ router.post('/:id', function(req, res) {
       completed: completed,
       rating: req.body.rating,
       loaned: req.body.loaned,
-      loanedDate: req.body.loanedDate
+      // loanedDate: req.body.loanedDate
     })
     res.redirect(`/library/${req.body.bookId}`)
   })
