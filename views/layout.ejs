@@ -6,29 +6,59 @@
     <title>Libros</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+     
+     <!-- Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+           
   </head>
   <body>
     <header>
       <nav>
-        <ul>
-          <li><a href="/">Welcome</a></li>
-          <% if (!currentUser) { %>
+        <div class="nav-wrapper black">
+          <a href="/" class="brand-logo">Libros</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+        
             
-            <li><a href="/auth/signup">Signup</a></li>
-            <li><a href="/auth/login">Login</a></li>
-          <% } else { %>
-            <li><a href="/home">Home</a></li>
-            <li><a href="/library">Library</a></li>
-            
-            <li><a href="/auth/logout">Logout</a></li>
-            <li><a href="/profile">Profile</a></li>
-          <% } %>
-        </ul>
+            <% if (!currentUser) { %>
+              <li><a href="/">Welcome</a></li>
+              <li><a href="/auth/signup">Signup</a></li>
+              <li><a href="/auth/login">Login</a></li>
+            <% } else { %>
+              <!-- <li><a href="/home">Home</a></li> -->
+              <li><a href="/library">Library</a></li>
+              
+              <li><a href="/auth/logout">Logout</a></li>
+              <li><a href="/profile">Profile</a></li>
+            <% } %>
+          </ul>
+        </div>  
       </nav>
+      <ul class="sidenav" id="mobile-demo">
+        <% if (!currentUser) { %>
+          <li><a href="/">Welcome</a></li>
+          <li><a href="/auth/signup">Signup</a></li>
+          <li><a href="/auth/login">Login</a></li>
+        <% } else { %>
+          <!-- <li><a href="/home">Home</a></li> -->
+          <li><a href="/library">Library</a></li>
+          
+          <li><a href="/auth/logout">Logout</a></li>
+          <li><a href="/profile">Profile</a></li>
+        <% } %>
+      </ul>
     </header>
     <%- include("partials/alerts") %>
+    <div class="container">
 
-    <h1>Libros</h1>
-    <%- body %>
+      <h1>Libros</h1>
+      <%- body %>
+      
+    </div>
+    <!-- Materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      
   </body>
 </html>
