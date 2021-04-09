@@ -9,7 +9,10 @@
     <% books.forEach(book => { %> 
       <% if (book.volumeInfo.imageLinks) { %> 
         <img src="<%= book.volumeInfo.imageLinks.thumbnail  %>" alt="book cover">
+      <% } else {%> 
+        <img src="/images/book.jpeg" alt="generic book cover">
       <% } %> 
+
       <li>
         <%= book.volumeInfo.title %> by <%= book.volumeInfo.authors %>
       </li>
@@ -21,9 +24,9 @@
         <input type="hidden" name="title" value="<%= book.volumeInfo.title %>">
         <input type="hidden" name="author" value="<%= book.volumeInfo.authors %>">
         <input type="hidden" name="description" value="<%= book.volumeInfo.description %>">
-        
+        <% if (book.volumeInfo.imageLinks) { %> 
         <input type="hidden" name="image" value="<%= book.volumeInfo.imageLinks.thumbnail %>">
-        
+        <% } %> 
         <input type="submit" value="Add to libray">
       </form>
 
