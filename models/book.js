@@ -28,6 +28,12 @@ module.exports = (sequelize, DataTypes) => {
     pageCount: DataTypes.INTEGER,
     publisher: DataTypes.STRING,
     publishedDate: DataTypes.STRING,
+    comments: DataTypes.TEXT,
+    readingDate: DataTypes.DATE,
+    rating: DataTypes.INTEGER,
+    completed: DataTypes.BOOLEAN,
+    loaned: DataTypes.TEXT,
+    loanedDate: DataTypes.DATE,
     authorId:{
       type:DataTypes.INTEGER,
       references: {
