@@ -10,22 +10,43 @@
 <p><%= book.description %> </p>
 
 
+<div class="row"> 
 
-<form  method="POST" action="/bookreview/<%= book.id  %>">
-  <input type="hidden" name="bookId" value="<%= book.id  %>">
-  <label for="bookreview">Review</label>
-  <textarea name="bookreview" id="bookreview" cols="30" rows="10"></textarea>
-  <label for="completed">Finished reading</label>
-  <input type="checkbox" name="completed" id="completed" value="true">
-  <label for="rating">My Rating</label>
-  <input type="number" name="rating" id="rating" max="5">
-  <label for="loaned">Loaned to</label>
-  <input type="text" name="loaned" id="loaned">
-  <!-- <label for="loanedDate">Loan Date</label>
-  <input type="date" name="loanedDate" id="loandate"> -->
-  <button type="submit">Save</button>
+  <form class="col s12" method="POST" action="/bookreview/<%= book.id  %>">
+    <div class="row">
+      <div class="input-field col s12">
+        <input type="hidden" name="bookId" value="<%= book.id  %>">
+        <label for="bookreview">Review</label>
+        <textarea name="bookreview" id="bookreview" class="materialize-textarea"></textarea>
+      </div>
+    </div> 
+    <div class="row">
+      <div class="input-field col s6"> 
+        <p>
+          <label for="completed">
+            <input type="checkbox" name="completed" id="completed" value="true" />
+            <span>Finished reading</span>
+          </label>
+        </p>
+        <!-- <label for="completed">Finished reading</label>
+        <input type="checkbox" name="completed" id="completed" value="true"> -->
+      </div>  
+      <div class="input-field col s6"> 
+        <label for="rating">My Rating</label>
+        <input type="number" name="rating" id="rating" max="5">
+      </div>
+    </div>  
+    <div class="row">
+      <div class="input-field col s12">
+        <label for="loaned">Loaned to</label>
+        <input type="text" name="loaned" id="loaned">
+        <!-- <label for="loanedDate">Loan Date</label>
+        <input type="date" name="loanedDate" id="loandate"> -->
+      </div>
+    </div>
+        <button type="submit">Save</button>
 </form>
-
+</div>
 <h3>My Review</h3>
 <p>
   <%= book.comments %> 
