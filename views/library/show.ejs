@@ -9,59 +9,77 @@
 <h3>Description</h3>
 <p><%= book.description %> </p>
 
-
-<div class="row"> 
-
-  <form class="col s12" method="POST" action="/bookreview/<%= book.id  %>">
-    <div class="row">
-      <div class="input-field col s12">
-        <input type="hidden" name="bookId" value="<%= book.id  %>">
-        <label for="bookreview">Review</label>
-        <textarea name="bookreview" id="bookreview" class="materialize-textarea"></textarea>
-      </div>
-    </div> 
-    <div class="row">
-      <div class="input-field col s6"> 
-        <p>
-          <label for="completed">
-            <input type="checkbox" name="completed" id="completed" value="true" />
-            <span>Finished reading</span>
-          </label>
-        </p>
-        <!-- <label for="completed">Finished reading</label>
-        <input type="checkbox" name="completed" id="completed" value="true"> -->
-      </div>  
-      <div class="input-field col s6"> 
-        <label for="rating">My Rating</label>
-        <input type="number" name="rating" id="rating" max="5">
-      </div>
-    </div>  
-    <div class="row">
-      <div class="input-field col s12">
-        <label for="loaned">Loaned to</label>
-        <input type="text" name="loaned" id="loaned">
-        <!-- <label for="loanedDate">Loan Date</label>
-        <input type="date" name="loanedDate" id="loandate"> -->
-      </div>
-    </div>
-        <button type="submit">Save</button>
-</form>
-</div>
 <h3>My Review</h3>
-<p>
-  <%= book.comments %> 
 
-</p>
+<!-- Modal Trigger -->
+<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Add or Edit Review</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content""> 
+
+      <form class="col s12" method="POST" action="/bookreview/<%= book.id  %>">
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="hidden" name="bookId" value="<%= book.id  %>">
+            <label for="bookreview">Review</label>
+            <textarea name="bookreview" id="bookreview" class="materialize-textarea"></textarea>
+          </div>
+        </div> 
+        <div class="row">
+          <div class="input-field col s6"> 
+            <p>
+              <label for="completed">
+                <input type="checkbox" name="completed" id="completed" value="true" />
+                <span>Finished reading</span>
+              </label>
+            </p>
+            
+          </div>  
+          <div class="input-field col s6"> 
+            <label for="rating">My Rating</label>
+            <input type="number" name="rating" id="rating" max="5">
+          </div>
+        </div>  
+        <div class="row">
+          <div class="input-field col s12">
+            <label for="loaned">Loaned to</label>
+            <input type="text" name="loaned" id="loaned">
+            
+          </div>
+        </div>
+            <button type="submit" class="modal-close waves-effect waves-green btn-flat">Save</button>
+    </form>
+    </div>
+    
+  </div>
+
+<h4>Personal Comments</h4>
+<p> <%= book.comments %> </p>
 
  
 
-<p>Finished Reading</p>
-<p><%= book.completed  %> </p>
+<h4>Finished Reading</h4>
+<% if (book.completed === true){%>
+  <p>
+    <label>
+      <input type="checkbox" checked="checked" disabled="disabled" />
+      <span>Yes</span>
+    </label>
+  </p>
+<%} else {%> 
+  <div class="icon-close">
+    <i class="close material-icons prefix">close</i>
+    <p></p>No yet </p>
 
-<p>My Rating</p>
-<p><%= book.rating %> </p>
+  </div>
+<% } %> 
+<h4>My Rating</h4>
+<p><%= book.rating %>/5 </p>
 
-<p>Loaned to:</p>
-<p><%= book.loaned %> </p>
-<p>Loaned Date:</p>
-<p><%= book.loanedDate %> </p>
+<% if (book.loaned) { %> 
+  <h4>Loaned to:</h4>
+  <p><%= book.loaned %> </p>
+  
+<% } %> 
+
