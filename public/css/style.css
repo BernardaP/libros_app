@@ -6,11 +6,12 @@ nav ul li {
 
 
 
-.icon-close {
+/* .icon-close {
   display: flex;
-}
-.icon-close p {
-  padding-right: 5px;
+} */
+.icon-close span {
+  padding-right: 12px;
+  float: left;
 }
 /* .main-photo {
  background-size: cover;
