@@ -13,7 +13,9 @@ router.get('/', function(req, res) {
     where: {
       id: req.user.id
     },
-    include: [db.book]
+    include: {
+      model: db.book, include: [db.author]
+    } 
   }).then((user)=> {
     console.log("*******", user.books)
     res.render('library/index.ejs', { user: user })
