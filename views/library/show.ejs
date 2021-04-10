@@ -1,4 +1,4 @@
-<h1>About this book</h1>
+
 
 <div class="row">
   <div class="col s12 m5">
@@ -18,43 +18,51 @@
   </div>
 
   <div class="col s12 m7">
-    <h2> <%= book.title %>  </h2>
-    <h2> <%= book.author.firstName %>  </h2>
-
-    <!-- <ul class="collapsible popout">
-      <li>
-        <div class="collapsible-header"><i class="material-icons">filter_drama</i>Description</div>
-        <div class="collapsible-body"><span><%= book.description %></span></div>
-      </li>
-    </ul>   -->
-    <h3>My Review</h3>
+    
+    <h1>About this book</h1>
+   
+    
     <ul class="collapsible popout">
       <li>
-        <div class="collapsible-header"><i class="material-icons">filter_drama</i>Description</div>
-        <div class="collapsible-body"><span><%= book.description %></span></div>
+        <div class="collapsible-header white-text"><i class="material-icons">filter_drama</i>Title</div>
+        <div class="collapsible-body grey-text text-darken-1 white"><span><%= book.title %> </span></div>
       </li>
       <li>
-        <div class="collapsible-header"><i class="material-icons">filter_drama</i>Personal Comments</div>
-        <div class="collapsible-body"><span><%= book.comments %></span></div>
+        <div class="collapsible-header white-text"><i class="material-icons">filter_drama</i>Author</div>
+        <div class="collapsible-body grey-text text-darken-1 white"><span><%= book.author.firstName %></span></div>
       </li>
       <li>
-        <div class="collapsible-header"><i class="material-icons">place</i>Finished Reading</div>
+        <div class="collapsible-header white-text"><i class="material-icons">filter_drama</i>Description</div>
+        <div class="collapsible-body grey-text text-darken-1 white"><span><%= book.description %></span></div>
+      </li>
+      <li>
+        <div class="collapsible-header white-text"><i class="material-icons">filter_drama</i>Personal Review</div>
+        <div class="collapsible-body grey-text text-darken-1 white"><span><%= book.comments %></span></div>
+      </li>
+      <li>
+        <div class="collapsible-header white-text"><i class="material-icons">place</i>Finished Reading</div>
         <% if (book.completed === true){%>
-          <div class="collapsible-body icon-close"><i class="material-icons">check</i><span>Yes</span></div>
+          <div class="collapsible-body grey-text text-darken-1 white icon-close"><i class="material-icons">check</i><span>Yes</span></div>
           
         <%} else {%> 
-          <div class="collapsible-body icon-close"><i class="material-icons ">close</i><span>No yet</span></div>
+          <div class="collapsible-body grey-text text-darken-1 white icon-close"><i class="material-icons ">close</i><span>No yet</span></div>
         <% } %> 
         
       </li>
       <li>
-        <div class="collapsible-header"><i class="material-icons">whatshot</i>My Rating</div>
-        <div class="collapsible-body"><span><%= book.rating %>/5 </span></div>
+        <div class="collapsible-header white-text"><i class="material-icons">whatshot</i>My Rating</div>
+        <div class="collapsible-body grey-text text-darken-1 white"><span><%= book.rating %>/5 </span></div>
       </li>
       <li>
         <% if (book.loaned) { %> 
-          <div class="collapsible-header"><i class="material-icons">whatshot</i>Loaned to:</div>
-          <div class="collapsible-body"><span><%= book.loaned %></span></div>
+          <div class="collapsible-header white-text"><i class="material-icons">whatshot</i>Loaned to:</div>
+          <div class="collapsible-body grey-text text-darken-1 white"><span><%= book.loaned %></span></div>
+        <% } %> 
+      </li>
+      <li>
+        <% if (book.loanedDate) { %> 
+          <div class="collapsible-header white-text"><i class="material-icons">whatshot</i>Loaned date:</div>
+          <div class="collapsible-body grey-text text-darken-1 white"><span><%= book.loanedDate %></span></div>
         <% } %> 
       </li>
     </ul>
@@ -103,10 +111,14 @@
           </div>
         </div>  
         <div class="row">
-          <div class="input-field col s12">
+          <div class="input-field col s6">
             <label for="loaned">Loaned to</label>
             <input type="text" name="loaned" id="loaned">
-            
+          </div>
+          <div class="input-field col s6">
+            <label class="active" for="loanedDate">Loan Date</label>
+            <input type="date" name="loanedDate" id="loandate">
+
           </div>
         </div>
             <button type="submit" class="modal-close waves-effect waves-green btn-flat">Save</button>
@@ -178,3 +190,5 @@
   
 <% } %>  --> 
 
+<!-- <p>Loaned Date:</p>
+<p><%= book.loanedDate %> </p> -->
