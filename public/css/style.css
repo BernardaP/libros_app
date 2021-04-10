@@ -4,9 +4,7 @@ nav ul li {
   margin-right: .3em;
 }
 
-h1 {
-  color: chartreuse;
-}
+
 
 .icon-close {
   display: flex;
@@ -14,6 +12,51 @@ h1 {
 .icon-close p {
   padding-right: 5px;
 }
-.main-photo {
+/* .main-photo {
  background-size: cover;
+ margin-left: 10%;
+} */
+
+body {
+  min-height: 100vh;
+  font-family: 'Zilla Slab', serif;
+  background-color: #e9fdfe;
+  font-weight: 300;
+}
+h1 {
+  font-family: 'Lobster Two', cursive;
+}
+
+img {
+  max-width: 100%;
+}
+nav .brand-logo {
+  margin-left: 15px;
+}
+.brand-logo {
+  font-family: 'Train One', cursive;
+}
+.nav-wrapper{
+  background-color: rgb(52, 115, 144);
+}
+.home-page p {
+  font-size: 20px;
+  color: #9a9a9a;
+  font-weight: 300;
+  
+}
+.home-page{
+  text-align: center;
+}
+
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 500px) {
+  .main-photo {
+   
+    margin-left: 0;
+    margin-top: 23%;
+  }
+  
 }
