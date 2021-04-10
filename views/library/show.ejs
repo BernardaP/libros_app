@@ -1,18 +1,79 @@
-<h1>Book Details</h1>
+<h1>About this book</h1>
 
-<img src="<%= book.image %>" alt="">
-<h2> <%= book.title %>  </h2>
-<h2> <%= book.author.firstName %>  </h2>
+<div class="row">
+  <div class="col s12 m5">
+    <div class="card">
+      <div class="card-image">
+        <img src="<%= book.image %>" alt="book cover">
+        
+      </div>
+      <!-- <div class="card-content">
+        <p>I am a very simple card. I am good at containing small bits of information.
+        I am convenient because I require little markup to use effectively.</p>
+      </div> -->
+      <div class="card-action">
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Add or Edit Review</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col s12 m7">
+    <h2> <%= book.title %>  </h2>
+    <h2> <%= book.author.firstName %>  </h2>
+
+    <!-- <ul class="collapsible popout">
+      <li>
+        <div class="collapsible-header"><i class="material-icons">filter_drama</i>Description</div>
+        <div class="collapsible-body"><span><%= book.description %></span></div>
+      </li>
+    </ul>   -->
+    <h3>My Review</h3>
+    <ul class="collapsible popout">
+      <li>
+        <div class="collapsible-header"><i class="material-icons">filter_drama</i>Description</div>
+        <div class="collapsible-body"><span><%= book.description %></span></div>
+      </li>
+      <li>
+        <div class="collapsible-header"><i class="material-icons">filter_drama</i>Personal Comments</div>
+        <div class="collapsible-body"><span><%= book.comments %></span></div>
+      </li>
+      <li>
+        <div class="collapsible-header"><i class="material-icons">place</i>Finished Reading</div>
+        <% if (book.completed === true){%>
+          <div class="collapsible-body icon-close"><i class="material-icons">check</i><span>Yes</span></div>
+          
+        <%} else {%> 
+          <div class="collapsible-body icon-close"><i class="material-icons ">close</i><span>No yet</span></div>
+        <% } %> 
+        
+      </li>
+      <li>
+        <div class="collapsible-header"><i class="material-icons">whatshot</i>My Rating</div>
+        <div class="collapsible-body"><span><%= book.rating %>/5 </span></div>
+      </li>
+      <li>
+        <% if (book.loaned) { %> 
+          <div class="collapsible-header"><i class="material-icons">whatshot</i>Loaned to:</div>
+          <div class="collapsible-body"><span><%= book.loaned %></span></div>
+        <% } %> 
+      </li>
+    </ul>
+
+  </div>
+
+</div>
 
 
+<!-- <img class="responsive-img card-panel" src="<%= book.image %>" alt=""> -->
 
-<h3>Description</h3>
-<p><%= book.description %> </p>
 
-<h3>My Review</h3>
+<!-- <h3>Description</h3>
+<p><%= book.description %> </p> -->
+
+<!-- <h3>My Review</h3> -->
 
 <!-- Modal Trigger -->
-<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Add or Edit Review</a>
+<!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Add or Edit Review</a> -->
 
   <!-- Modal Structure -->
   <div id="modal1" class="modal">
@@ -54,10 +115,44 @@
     
   </div>
 
-<h4>Personal Comments</h4>
-<p> <%= book.comments %> </p>
+<!-- <h4>Personal Comments</h4> -->
+<!-- <p> <%= book.comments %> </p>
 
- 
+<ul class="collapsible popout">
+  <li>
+    <div class="collapsible-header"><i class="material-icons">filter_drama</i>Personal Comments</div>
+    <div class="collapsible-body"><span><%= book.comments %></span></div>
+  </li>
+  <li>
+    <div class="collapsible-header"><i class="material-icons">place</i>Finished Reading</div>
+    <% if (book.completed === true){%>
+      <div class="collapsible-body"><span>
+      <p>
+        <label>
+          <input type="checkbox" checked="checked" disabled="disabled" />
+          <span>Yes</span>
+        </label>
+      </p>
+    <%} else {%> 
+      <div class="icon-close">
+        <i class="close material-icons prefix">close</i>
+        <p></p>No yet </p>
+    
+      </div>
+    <% } %> 
+    </span></div>
+  </li>
+  <li>
+    <div class="collapsible-header"><i class="material-icons">whatshot</i>My Rating</div>
+    <div class="collapsible-body"><span><%= book.rating %>/5 </span></div>
+  </li>
+  <li>
+    <% if (book.loaned) { %> 
+    <div class="collapsible-header"><i class="material-icons">whatshot</i>Loaned to:</div>
+    <div class="collapsible-body"><span><%= book.loaned %></span></div>
+    <% } %> 
+  </li>
+</ul>
 
 <h4>Finished Reading</h4>
 <% if (book.completed === true){%>
@@ -81,5 +176,5 @@
   <h4>Loaned to:</h4>
   <p><%= book.loaned %> </p>
   
-<% } %> 
+<% } %>  --> 
 
