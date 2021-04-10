@@ -7,3 +7,13 @@ nav ul li {
 h1 {
   color: chartreuse;
 }
+
+.icon-close {
+  display: flex;
+}
+.icon-close p {
+  padding-right: 5px;
+}
+.main-photo {
+ background-size: cover;
+}
