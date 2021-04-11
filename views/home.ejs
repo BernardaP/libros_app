@@ -1,13 +1,64 @@
 <main >
   <div class= "container">
+    <h1>Add a book</h1>
+    <h5>Enter the title of your book, we will find it and you can add it to your library</h5>
+    <nav>
+      <div class="nav-wrapper">
+      <form method="GET" action="/home">
+        <div class="input-field">
+          <input type="search" name="title" id="search" placeholder="Book Title">
+          <label class="label-icon" for="search" ><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+          <!-- <button class="btn" type="submit">Find a Book</button> -->
+        </div>
+      </form>
+    </div>
+  </nav>
+    
+    <div class="row search-results">
+      
+      <% if (books ) {%> 
+        <% books.forEach(book => { %> 
 
-<form method="GET" action="/home">
-  <label for="title">Title</label>
-  <input type="text" name="title" id="title">
-  <button type="submit">Find a Book</button>
-</form>
+          <form method="POST" action="/library">
+            <input type="hidden" name="title" value="<%= book.volumeInfo.title %>">
+            <input type="hidden" name="author" value="<%= book.volumeInfo.authors %>">
+            <input type="hidden" name="description" value="<%= book.volumeInfo.description %>">
+            <% if (book.volumeInfo.imageLinks) { %> 
+            <input type="hidden" name="image" value="<%= book.volumeInfo.imageLinks.thumbnail %>">
+            <% } %> 
+              
+            <div class="col s12 m3">
+              <div class="card">
+                <div class="card-image search-card-img">
+                  <% if (book.volumeInfo.imageLinks) { %> 
+                    <img src="<%= book.volumeInfo.imageLinks.thumbnail %>" alt="book cover">
+                  <% } else {%> 
+                      <img src="/images/book.jpeg" alt="generic book cover">
+                  <% } %> 
 
-<% if (books ) {%> 
+            <button type="submit" class="btn-floating halfway-fab waves-effect waves-light red"  value="Add to libray"><i class="material-icons">add</i> </button>
+                       
+            </div>
+               
+            <div class="card-content search-card-content">
+              <span class="card-title"><%= book.volumeInfo.title %> </span>
+                  
+            </div>
+          </form>
+              
+          
+            </div>
+          </div>
+        <% }) %> 
+          
+        <% } else {%>
+          <p>No books with that title were found</p>  
+            
+      <% } %> 
+    </div>
+
+    <!-- <% if (books ) {%> 
   <ul>
     <% books.forEach(book => { %> 
       <% if (book.volumeInfo.imageLinks) { %> 
@@ -38,22 +89,8 @@
 <% } else {%>
   <p>No books with that title were found</p>  
   
-<% } %> 
+<% } %>  -->
 
-<div class="row">
-  <div class="col s12 m6">
-    <div class="card">
-      <div class="card-image">
-        <img src="images/sample-1.jpg">
-        <span class="card-title">Card Title</span>
-        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-      </div>
-      <div class="card-content">
-        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-      </div>
-    </div>
-  </div>
-</div>
 
 </div>
 </main>

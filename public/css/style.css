@@ -1,6 +1,4 @@
-header {
-  z-index: 99;
-}
+
 body {
   display: flex;
   min-height: 100vh;
@@ -24,6 +22,7 @@ nav ul li {
 .sidenav li>a {
   font-size: 20px !important;
   padding-top: 15% !important;
+  
 }
 footer {
   padding-top: 0;
@@ -44,7 +43,7 @@ footer {
   right: 0;
   bottom: 0;
   background-color: rgba(0,0,0); 
-  opacity: 0.3;
+  opacity: 0.5;
  
 }
 .alert {
@@ -55,6 +54,7 @@ footer {
   /* margin-bottom: 15px; */
   font-weight: 400;
   font-size: 17px;
+  z-index: 100;
 }
 .alert-success {
   background-color: #4CAF50;
@@ -88,7 +88,16 @@ footer {
  background-size: cover;
  margin-left: 10%;
 } */
-
+.search-card-img img {
+  max-height: 242px;
+}
+.search-card-content, .card-title{
+  max-height: 88px;
+  
+}
+.search-card-content, .card-title{
+  font-size: 16px !important;
+} 
 h1 {
   font-family: 'Lobster Two', cursive;
 }
@@ -102,9 +111,19 @@ nav .brand-logo {
 .brand-logo {
   font-family: 'Train One', cursive;
 }
+nav .nav-wrapper {
+  z-index: 1 ;
+}
 .nav-wrapper{
   background-color: rgb(52, 115, 144);
 }
+
+/* Search Page */
+.search-results{
+  margin-top: 10%;
+}
+
+/* Landing Page */
 .home-page p {
   font-size: 20px;
   color: #9a9a9a;
@@ -115,6 +134,7 @@ nav .brand-logo {
   text-align: center;
 }
 
+/* Library Page */
 .bookshelf {
   background-image: url(/images/bookshelf.png);
   /* background-size: cover; */
@@ -132,6 +152,11 @@ nav .brand-logo {
 }
 .library p{
   font-size: 17px;
+}
+.library-message{
+  color: white;
+  font-weight: 400;
+  padding-left: 2%;
 }
 .card-reveal h3 {
   font-size: 22px;
@@ -190,6 +215,13 @@ nav .brand-logo {
   .detail-book-card{
     margin-top: 0 !important;
   }
+  .library-header {
+    display: block;
+   
+  }
+  .library-header h1 {
+    margin: 15px 0px;
+}
 }
 
 @media only screen and (max-width: 992px){
