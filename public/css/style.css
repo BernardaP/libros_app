@@ -19,10 +19,13 @@ nav ul li {
   display: inline-block;
   margin-right: .3em;
 }
+.sidenav {
+  background-color: rgb(76 178 213) !important;
+}
 .sidenav li>a {
   font-size: 20px !important;
   padding-top: 15% !important;
-  
+  color: rgb(254 254 254) !important;
 }
 footer {
   padding-top: 0;
@@ -43,7 +46,7 @@ footer {
   right: 0;
   bottom: 0;
   background-color: rgba(0,0,0); 
-  opacity: 0.5;
+  opacity: 0.3;
  
 }
 .alert {
@@ -88,9 +91,9 @@ footer {
  background-size: cover;
  margin-left: 10%;
 } */
-.search-card-img img {
+/* .search-card-img img {
   max-height: 242px;
-}
+} */
 .search-card-content, .card-title{
   max-height: 88px;
   
