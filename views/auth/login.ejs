@@ -1,9 +1,33 @@
-<form action="/auth/login" method="POST">
-  <label for="auth-email">Email</label>
-  <input id="auth-email" type="email" name="email">
+<main>
+  <div class="container">
 
-  <label for="auth-password">Password</label>
-  <input id="auth-password" type="password" name="password">
+    <div class="row">
+      <h1>Welcome back!</h1>
+      
+      <form action="/auth/login" method="POST" class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <label for="auth-email">Email</label>
+            <input id="auth-email" type="email" name="email">
 
-  <input type="submit" value="Log In">
-</form>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <label for="auth-password">Password</label>
+            <input id="auth-password" type="password" name="password" class="validate">
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+
+            <button class="btn white-text waves-effect waves-light" type="submit" value="Log In">Log In </button>
+          </div>
+        </div>
+        
+      </form>
+      
+    </div>
+  </div>
+</main>
