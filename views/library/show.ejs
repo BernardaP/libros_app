@@ -1,8 +1,10 @@
+<main>
+  <div class= "container">
 
 
 <div class="row">
   <div class="col s12 m5">
-    <div class="card">
+    <div class="card detail-book-card">
       <div class="card-image">
         <img src="<%= book.image %>" alt="book cover">
         
@@ -19,28 +21,28 @@
 
   <div class="col s12 m7">
     
-    <h1>About this book</h1>
-   
+    
     
     <ul class="collapsible popout">
+      <h1>About this book</h1>
       <li>
-        <div class="collapsible-header white-text"><i class="material-icons">filter_drama</i>Title</div>
+        <div class="collapsible-header white-text"><i class="material-icons">import_contacts</i>Title</div>
         <div class="collapsible-body grey-text text-darken-1 white"><span><%= book.title %> </span></div>
       </li>
       <li>
-        <div class="collapsible-header white-text"><i class="material-icons">filter_drama</i>Author</div>
+        <div class="collapsible-header white-text"><i class="material-icons">portrait</i>Author</div>
         <div class="collapsible-body grey-text text-darken-1 white"><span><%= book.author.firstName %></span></div>
       </li>
       <li>
-        <div class="collapsible-header white-text"><i class="material-icons">filter_drama</i>Description</div>
+        <div class="collapsible-header white-text"><i class="material-icons">subject</i>Description</div>
         <div class="collapsible-body grey-text text-darken-1 white"><span><%= book.description %></span></div>
       </li>
       <li>
-        <div class="collapsible-header white-text"><i class="material-icons">filter_drama</i>Personal Review</div>
+        <div class="collapsible-header white-text"><i class="material-icons">comment</i>Personal Review</div>
         <div class="collapsible-body grey-text text-darken-1 white"><span><%= book.comments %></span></div>
       </li>
       <li>
-        <div class="collapsible-header white-text"><i class="material-icons">place</i>Finished Reading</div>
+        <div class="collapsible-header white-text"><i class="material-icons">done</i>Finished Reading</div>
         <% if (book.completed === true){%>
           <div class="collapsible-body grey-text text-darken-1 white icon-close"><i class="material-icons">check</i><span>Yes</span></div>
           
@@ -50,18 +52,18 @@
         
       </li>
       <li>
-        <div class="collapsible-header white-text"><i class="material-icons">whatshot</i>My Rating</div>
+        <div class="collapsible-header white-text"><i class="material-icons">stars</i>My Rating</div>
         <div class="collapsible-body grey-text text-darken-1 white"><span><%= book.rating %>/5 </span></div>
       </li>
       <li>
         <% if (book.loaned) { %> 
-          <div class="collapsible-header white-text"><i class="material-icons">whatshot</i>Loaned to:</div>
+          <div class="collapsible-header white-text"><i class="material-icons">face</i>Loaned to:</div>
           <div class="collapsible-body grey-text text-darken-1 white"><span><%= book.loaned %></span></div>
         <% } %> 
       </li>
       <li>
         <% if (book.loanedDate) { %> 
-          <div class="collapsible-header white-text"><i class="material-icons">whatshot</i>Loaned date:</div>
+          <div class="collapsible-header white-text"><i class="material-icons">date_range</i>Loaned date:</div>
           <div class="collapsible-body grey-text text-darken-1 white"><span><%= book.loanedDate %></span></div>
         <% } %> 
       </li>
@@ -96,7 +98,7 @@
           </div>
         </div> 
         <div class="row">
-          <div class="input-field col s6"> 
+          <div class="input-field col s12 l6"> 
             <p>
               <label for="completed">
                 <input type="checkbox" name="completed" id="completed" value="true" />
@@ -105,19 +107,19 @@
             </p>
             
           </div>  
-          <div class="input-field col s6"> 
+          <div class="input-field col s12 l6"> 
             <label for="rating">My Rating</label>
             <input type="number" name="rating" id="rating" max="5">
           </div>
         </div>  
         <div class="row">
-          <div class="input-field col s6">
+          <div class="input-field col s12 l6">
             <label for="loaned">Loaned to</label>
             <input type="text" name="loaned" id="loaned">
           </div>
-          <div class="input-field col s6">
+          <div class="input-field col s12 l6">
             <label class="active" for="loanedDate">Loan Date</label>
-            <input type="date" name="loanedDate" id="loandate">
+            <input type="text" class="datepicker" name="loanedDate" id="loandate">
 
           </div>
         </div>
@@ -192,3 +194,7 @@
 
 <!-- <p>Loaned Date:</p>
 <p><%= book.loanedDate %> </p> -->
+
+
+</div>
+</main>

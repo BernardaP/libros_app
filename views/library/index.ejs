@@ -1,14 +1,62 @@
 <!-- <a href="/home">Add a Book</a> -->
 <% let num_books = (user.books.length) %> 
-
-<h1><%= user.name %>'s Library </h1>
-<p>You have <%= num_books %> books </p>
-
-
-<a href="/home" class="btn-floating btn-large waves-effect waves-light red btn tooltipped" data-position="bottom" data-tooltip="Add a Book"><i class="material-icons">add</i></a>
+<main class="bookshelf">
+<div class= "container">
 
 
 
+<div class="row">
+  <div class="col s12">
+    
+  </div>
+  <h1><%= user.name %>'s Library </h1>
+  <a href="/home" class="btn-floating btn-large waves-effect waves-light red btn tooltipped" data-position="bottom" data-tooltip="Add a Book"><i class="material-icons">add</i></a>
+  <p>You have <%= num_books %> books </p>
+  <p>Yes, your entire library of books at your finger tips. Can’t remember how your felt about that book you read a while ago? Check out your review, rating and refresh your memory, you can’t seem to find a book you are certain you have? No problem Libros is here to help and make it easy and simple.</p>
+  <% if (user.books.length < 1) {%> 
+    <p>Library is empty</p>  
+  <% } else { %>
+    <% user.books.forEach(book => { %> 
+
+      <div class="col s12 m3">
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="<%= book.image %>">
+          </div>
+          <div class="card-content">
+            <% if (book.rating === 5) {%> 
+            <span class="card-title activator grey-text text-darken-4"><i class="material-icons left">favorite</i><i class="material-icons right">more_vert</i></span>
+            <% } else { %> 
+            <span class="card-title activator grey-text text-darken-4"><i class="material-icons left"></i><i class="material-icons right">more_vert</i></span>
+            <% } %> 
+          </div>
+          <div class="card-action">
+            <form method="POST" action="/library/<%= book.id %>?_method=DELETE">
+              <button type="submit" class="btn waves-effect">Delete</button>
+            </form>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+            <h3><%= book.title %></h3>
+            <% if ( book.author) {%> 
+              <p>By <%= book.author.firstName %></p>
+            <% } %> 
+            
+            <p>Rating: <%= book.rating %>/5 </p>
+            <p><a href="/library/<%= book.id %>">More Book Details</a></p>
+          </div>
+        </div>
+      </div>
+
+    <% }) %>   
+  <% } %> 
+</div>
+
+
+
+
+
+<!-- 
 <% if (user.books.length < 1) {%> 
   <p>Library is empty</p>  
   
@@ -23,14 +71,17 @@
             <% if ( book.author) {%> 
             <%= book.author.firstName %></a>
             <% } %>  
-        </li>    
+        </li>  
+        
         <li> <img src="<%= book.image %>" alt=""> </li>
         <form method="POST" action="/library/<%= book.id %>?_method=DELETE">
-          <button type="submit">Delete</button>
+          <button class="btn" type="submit">Delete</button>
         </form>
     <% }) %> 
     </ul>
   
   
-<% } %> 
+<% } %>  -->
+</div>
+</main>
 
