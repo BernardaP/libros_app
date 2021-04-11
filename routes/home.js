@@ -13,7 +13,7 @@ router.get('/', function(req, res) {
   // Use request to call the API
   axios.get(process.env.API_URL, { 
     params: {
-      q: req.query.title || "Double cross"
+      q: req.query.title || "a dog's purpose"
     }
 
   })
