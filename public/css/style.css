@@ -1,3 +1,6 @@
+header {
+  z-index: 99;
+}
 body {
   display: flex;
   min-height: 100vh;
@@ -5,16 +8,23 @@ body {
   background-color: #e9fdfe;
   font-family: 'Zilla Slab', serif;
   font-weight: 300;
+  position: relative;
 }
 main {
   flex: 1 0 auto;
+}
+nav ul a {
+  font-size: 20px !important;
 }
 nav ul li {
   text-decoration: none;
   display: inline-block;
   margin-right: .3em;
 }
-
+.sidenav li>a {
+  font-size: 20px !important;
+  padding-top: 15% !important;
+}
 footer {
   padding-top: 0;
   text-align: right;
@@ -25,13 +35,24 @@ footer {
 .container {
   margin-top: 2% !important;
 }
-
+#overlay {
+  position: absolute; 
+  width: 100%; 
+  height: 100%; 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0); 
+  opacity: 0.3;
+ 
+}
 .alert {
   padding: 20px;
   color: white;
   opacity: 1;
   transition: opacity 0.6s;
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
   font-weight: 400;
   font-size: 17px;
 }
@@ -95,9 +116,26 @@ nav .brand-logo {
 }
 
 .bookshelf {
-  background-image: url(/images/bookshelf.jpeg);
+  background-image: url(/images/bookshelf.png);
+  /* background-size: cover; */
+  background-repeat: repeat;
 }
-
+.library {
+  position: relative;
+}
+.library-header {
+  display: flex;
+  align-items: flex-end;
+}
+.library-header h1{
+  margin: 0;
+}
+.library p{
+  font-size: 17px;
+}
+.card-reveal h3 {
+  font-size: 22px;
+}
 .detail-book-card{
   margin-top: 20% !important;
 }
@@ -136,13 +174,17 @@ nav .brand-logo {
 /* MEDIA QUERIES */
 
 @media only screen and (max-width: 500px) {
+  h1 {
+    font-size: 40px !important;
+  }
+  
   .main-photo {
    
     margin-left: 0;
     margin-top: 23%;
   }
   .collapsible h1 {
-    font-size: 40px;
+    
     text-align: center;
   }
   .detail-book-card{
