@@ -63,8 +63,12 @@
       </li>
       <li>
         <% if (book.loanedDate) { %> 
+          <% const date = new Date(book.loanedDate); %> 
+          <% const loanDate = (date.toDateString()); %> 
+          
+          
           <div class="collapsible-header white-text"><i class="material-icons">date_range</i>Loaned date:</div>
-          <div class="collapsible-body grey-text text-darken-1 white"><span><%= book.loanedDate %></span></div>
+          <div class="collapsible-body grey-text text-darken-1 white"><span><%= loanDate %> </span></div>
         <% } %> 
       </li>
     </ul>
@@ -74,16 +78,9 @@
 </div>
 
 
-<!-- <img class="responsive-img card-panel" src="<%= book.image %>" alt=""> -->
 
 
-<!-- <h3>Description</h3>
-<p><%= book.description %> </p> -->
 
-<!-- <h3>My Review</h3> -->
-
-<!-- Modal Trigger -->
-<!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Add or Edit Review</a> -->
 
   <!-- Modal Structure -->
   <div id="modal1" class="modal">
