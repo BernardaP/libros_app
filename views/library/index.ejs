@@ -56,6 +56,11 @@
                 <% } %> 
                 
                 <p>Rating: <%= book.rating %>/5 </p>
+                <% if ( book.loaned.length < 1) { %> 
+                  <p>Book loaned: NO</p>
+                <% } else { %> 
+                  <p class="red-text">Book loaned: YES</p>
+                <% } %>  
                 <p><a href="/library/<%= book.id %>">More Book Details</a></p>
               </div>
             </div>
