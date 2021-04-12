@@ -19,6 +19,27 @@ nav ul li {
   display: inline-block;
   margin-right: .3em;
 }
+h1 {
+  font-family: 'Lobster Two', cursive;
+}
+
+img {
+  max-width: 100%;
+}
+nav .brand-logo {
+  margin-left: 15px;
+}
+nav .nav-wrapper {
+  z-index: 1 ;
+}
+footer {
+  padding-top: 0;
+  text-align: right;
+  background-color: rgb(52, 115, 144) !important;
+}
+#footer {
+  padding: 5px;
+}
 .sidenav {
   background-color: rgb(76 178 213) !important;
 }
@@ -26,13 +47,6 @@ nav ul li {
   font-size: 20px !important;
   padding-top: 15% !important;
   color: rgb(254 254 254) !important;
-}
-footer {
-  padding-top: 0;
-  text-align: right;
-}
-#footer {
-  padding: 5px;
 }
 .container {
   margin-top: 2% !important;
@@ -47,14 +61,12 @@ footer {
   bottom: 0;
   background-color: rgba(0,0,0); 
   opacity: 0.3;
- 
 }
 .alert {
   padding: 20px;
   color: white;
   opacity: 1;
   transition: opacity 0.6s;
-  /* margin-bottom: 15px; */
   font-weight: 400;
   font-size: 17px;
   z-index: 100;
@@ -62,11 +74,9 @@ footer {
 .alert-success {
   background-color: #4CAF50;
 }
-
 .alert-error {
   background-color: #f44336;
 }
-
 .closebtn {
   margin-left: 15px;
   color: white;
@@ -80,48 +90,23 @@ footer {
 .closebtn:hover {
   color: black;
 }
-/* .icon-close {
-  display: flex;
-} */
+
 .icon-close span {
   padding-right: 12px;
   float: left;
 }
-/* .main-photo {
- background-size: cover;
- margin-left: 10%;
-} */
-/* .search-card-img img {
-  max-height: 242px;
-} */
-.search-card-content, .card-title{
-  max-height: 88px;
-  
-}
+
 .search-card-content, .card-title{
   font-size: 16px !important;
 } 
-h1 {
-  font-family: 'Lobster Two', cursive;
-}
-
-img {
-  max-width: 100%;
-}
-nav .brand-logo {
-  margin-left: 15px;
-}
 .brand-logo {
   font-family: 'Train One', cursive;
-}
-nav .nav-wrapper {
-  z-index: 1 ;
 }
 .nav-wrapper{
   background-color: rgb(52, 115, 144);
 }
 
-/* Add Book Page */
+/* AddBook Page */
 .search-results{
   margin-top: 10%;
 }
@@ -130,8 +115,7 @@ nav .nav-wrapper {
 .home-page p {
   font-size: 20px;
   color: #9a9a9a;
-  font-weight: 300;
-  
+  font-weight: 300; 
 }
 .home-page{
   text-align: center;
@@ -140,7 +124,6 @@ nav .nav-wrapper {
 /* Library Page */
 .bookshelf {
   background-image: url(/images/bookshelf.png);
-  /* background-size: cover; */
   background-repeat: repeat;
 }
 .library {
@@ -155,6 +138,10 @@ nav .nav-wrapper {
 }
 .library p{
   font-size: 17px;
+}
+.number {
+  font-size: 20px;
+  font-weight: 800;
 }
 .library-message{
   color: white;
@@ -181,16 +168,15 @@ nav .nav-wrapper {
 .collapsible-body {
   font-size: 16px;
 }
-
 .btn {
   background-color: rgb(52, 115, 144) !important;
 }
+/* Date Picker */
 .datepicker-date-display{
   background-color:  rgb(52, 115, 144) !important;
 }
 .datepicker-table td.is-selected {
-  background-color: rgb(52, 115, 144) !important;
-  
+  background-color: rgb(52, 115, 144) !important; 
 }
 .datepicker-done, .datepicker-cancel{
   color: rgb(52, 115, 144) !important;
@@ -202,20 +188,18 @@ nav .nav-wrapper {
   width: 70% !important;
 }
 
+
 /* MEDIA QUERIES */
 
 @media only screen and (max-width: 500px) {
   h1 {
     font-size: 40px !important;
   }
-  
   .main-photo {
-   
     margin-left: 0;
     margin-top: 23%;
   }
   .collapsible h1 {
-    
     text-align: center;
   }
   .description  {
@@ -227,11 +211,10 @@ nav .nav-wrapper {
   }
   .library-header {
     display: block;
-   
   }
   .library-header h1 {
     margin: 15px 0px;
-}
+  }
 }
 
 @media only screen and (max-width: 992px){
