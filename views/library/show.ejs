@@ -1,197 +1,107 @@
 <main>
   <div class= "container">
 
-
-<div class="row">
-  <div class="col s12 m5">
-    <div class="card detail-book-card">
-      <div class="card-image">
-        <img src="<%= book.image %>" alt="book cover">
-        
-      </div>
-      <!-- <div class="card-content">
-        <p>I am a very simple card. I am good at containing small bits of information.
-        I am convenient because I require little markup to use effectively.</p>
-      </div> -->
-      <div class="card-action">
-        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Add or Edit Review</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="col s12 m7">
-    
-    
-    
-    <ul class="collapsible popout">
-      <h1>About this book</h1>
-      <li>
-        <div class="collapsible-header white-text"><i class="material-icons">import_contacts</i>Title</div>
-        <div class="collapsible-body grey-text text-darken-1 white"><span><%= book.title %> </span></div>
-      </li>
-      <li>
-        <div class="collapsible-header white-text"><i class="material-icons">portrait</i>Author</div>
-        <div class="collapsible-body grey-text text-darken-1 white"><span><%= book.author.firstName %></span></div>
-      </li>
-      <li>
-        <div class="collapsible-header white-text"><i class="material-icons">subject</i>Description</div>
-        <div class="collapsible-body description grey-text text-darken-1 white"><span><%= book.description %></span></div>
-      </li>
-      <li>
-        <div class="collapsible-header white-text"><i class="material-icons">comment</i>Personal Review</div>
-        <div class="collapsible-body grey-text text-darken-1 white"><span><%= book.comments %></span></div>
-      </li>
-      <li>
-        <div class="collapsible-header white-text"><i class="material-icons">done</i>Finished Reading</div>
-        <% if (book.completed === true){%>
-          <div class="collapsible-body grey-text text-darken-1 white icon-close"><i class="material-icons">check</i><span>Yes</span></div>
-          
-        <%} else {%> 
-          <div class="collapsible-body grey-text text-darken-1 white icon-close"><i class="material-icons ">close</i><span>No yet</span></div>
-        <% } %> 
-        
-      </li>
-      <li>
-        <div class="collapsible-header white-text"><i class="material-icons">stars</i>My Rating</div>
-        <div class="collapsible-body grey-text text-darken-1 white"><span><%= book.rating %>/5 </span></div>
-      </li>
-      <li>
-        <% if (book.loaned) { %> 
-          <div class="collapsible-header white-text"><i class="material-icons">face</i>Loaned to:</div>
-          <div class="collapsible-body grey-text text-darken-1 white"><span><%= book.loaned %></span></div>
-        <% } %> 
-      </li>
-      <li>
-        <% if (book.loanedDate) { %> 
-          <% const date = new Date(book.loanedDate); %> 
-          <% const loanDate = (date.toDateString()); %> 
-          
-          
-          <div class="collapsible-header white-text"><i class="material-icons">date_range</i>Loaned date:</div>
-          <div class="collapsible-body grey-text text-darken-1 white"><span><%= loanDate %> </span></div>
-        <% } %> 
-      </li>
-    </ul>
-
-  </div>
-
-</div>
-
-
-
-
-
-
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal">
-    <div class="modal-content""> 
-
-      <form class="col s12" method="POST" action="/bookreview/<%= book.id  %>">
-        <div class="row">
-          <div class="input-field col s12">
-            <input type="hidden" name="bookId" value="<%= book.id  %>">
-            <label for="bookreview">Review</label>
-            <textarea name="bookreview" id="bookreview" class="materialize-textarea"></textarea>
+    <div class="row">
+      <div class="col s12 m5">
+        <div class="card detail-book-card">
+          <div class="card-image">
+            <img src="<%= book.image %>" alt="book cover">  
           </div>
-        </div> 
-        <div class="row">
-          <div class="input-field col s12 l6"> 
-            <p>
-              <label for="completed">
-                <input type="checkbox" name="completed" id="completed" value="true" />
-                <span>Finished reading</span>
-              </label>
-            </p>
-            
-          </div>  
-          <div class="input-field col s12 l6"> 
-            <label for="rating">My Rating</label>
-            <input type="number" name="rating" id="rating" max="5">
-          </div>
-        </div>  
-        <div class="row">
-          <div class="input-field col s12 l6">
-            <label for="loaned">Loaned to</label>
-            <input type="text" name="loaned" id="loaned">
-          </div>
-          <div class="input-field col s12 l6">
-            <label class="active" for="loanedDate">Loan Date</label>
-            <input type="text" class="datepicker" name="loanedDate" id="loandate">
-
+          <div class="card-action">
+            <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Add or Edit Review</a>
           </div>
         </div>
-            <button type="submit" class="modal-close waves-effect waves-green btn-flat">Save</button>
-    </form>
-    </div>
-    
-  </div>
-
-<!-- <h4>Personal Comments</h4> -->
-<!-- <p> <%= book.comments %> </p>
-
-<ul class="collapsible popout">
-  <li>
-    <div class="collapsible-header"><i class="material-icons">filter_drama</i>Personal Comments</div>
-    <div class="collapsible-body"><span><%= book.comments %></span></div>
-  </li>
-  <li>
-    <div class="collapsible-header"><i class="material-icons">place</i>Finished Reading</div>
-    <% if (book.completed === true){%>
-      <div class="collapsible-body"><span>
-      <p>
-        <label>
-          <input type="checkbox" checked="checked" disabled="disabled" />
-          <span>Yes</span>
-        </label>
-      </p>
-    <%} else {%> 
-      <div class="icon-close">
-        <i class="close material-icons prefix">close</i>
-        <p></p>No yet </p>
-    
       </div>
-    <% } %> 
-    </span></div>
-  </li>
-  <li>
-    <div class="collapsible-header"><i class="material-icons">whatshot</i>My Rating</div>
-    <div class="collapsible-body"><span><%= book.rating %>/5 </span></div>
-  </li>
-  <li>
-    <% if (book.loaned) { %> 
-    <div class="collapsible-header"><i class="material-icons">whatshot</i>Loaned to:</div>
-    <div class="collapsible-body"><span><%= book.loaned %></span></div>
-    <% } %> 
-  </li>
-</ul>
 
-<h4>Finished Reading</h4>
-<% if (book.completed === true){%>
-  <p>
-    <label>
-      <input type="checkbox" checked="checked" disabled="disabled" />
-      <span>Yes</span>
-    </label>
-  </p>
-<%} else {%> 
-  <div class="icon-close">
-    <i class="close material-icons prefix">close</i>
-    <p></p>No yet </p>
+      <div class="col s12 m7">
+        <ul class="collapsible popout">
+          <h1>About this book</h1>
+          <li>
+            <div class="collapsible-header white-text"><i class="material-icons">import_contacts</i>Title</div>
+            <div class="collapsible-body grey-text text-darken-1 white"><span><%= book.title %> </span></div>
+          </li>
+          <li>
+            <div class="collapsible-header white-text"><i class="material-icons">portrait</i>Author</div>
+            <div class="collapsible-body grey-text text-darken-1 white"><span><%= book.author.firstName %></span></div>
+          </li>
+          <li>
+            <div class="collapsible-header white-text"><i class="material-icons">subject</i>Description</div>
+            <div class="collapsible-body description grey-text text-darken-1 white"><span><%= book.description %></span></div>
+          </li>
+          <li>
+            <div class="collapsible-header white-text"><i class="material-icons">comment</i>Personal Review</div>
+            <div class="collapsible-body grey-text text-darken-1 white"><span><%= book.comments %></span></div>
+          </li>
+          <li>
+            <div class="collapsible-header white-text"><i class="material-icons">done</i>Finished Reading</div>
+            <% if (book.completed === true){%>
+              <div class="collapsible-body grey-text text-darken-1 white icon-close"><i class="material-icons">check</i><span>Yes</span></div>  
+            <%} else {%> 
+              <div class="collapsible-body grey-text text-darken-1 white icon-close"><i class="material-icons ">close</i><span>No yet</span></div>
+            <% } %> 
+          </li>
+          <li>
+            <div class="collapsible-header white-text"><i class="material-icons">stars</i>My Rating</div>
+            <div class="collapsible-body grey-text text-darken-1 white"><span><%= book.rating %>/5 </span></div>
+          </li>
+          <li>
+            <% if (book.loaned) { %> 
+              <div class="collapsible-header white-text"><i class="material-icons">face</i>Loaned to:</div>
+              <div class="collapsible-body grey-text text-darken-1 white"><span><%= book.loaned %></span></div>
+            <% } %> 
+          </li>
+          <li>
+            <% if (book.loanedDate) { %> 
+              <% const date = new Date(book.loanedDate); %> 
+              <% const loanDate = (date.toDateString()); %> 
+              
+              <div class="collapsible-header white-text"><i class="material-icons">date_range</i>Loaned date:</div>
+              <div class="collapsible-body grey-text text-darken-1 white"><span><%= loanDate %> </span></div>
+            <% } %> 
+          </li>
+        </ul>
+      </div>
+    </div>
 
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+      <div class="modal-content""> 
+
+        <form class="col s12" method="POST" action="/bookreview/<%= book.id  %>">
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="hidden" name="bookId" value="<%= book.id  %>">
+              <label for="bookreview">Review</label>
+              <textarea name="bookreview" id="bookreview" class="materialize-textarea"></textarea>
+            </div>
+          </div> 
+          <div class="row">
+            <div class="input-field col s12 l6"> 
+              <p>
+                <label for="completed">
+                  <input type="checkbox" name="completed" id="completed" value="true" />
+                  <span>Finished reading</span>
+                </label>
+              </p> 
+            </div>  
+            <div class="input-field col s12 l6"> 
+              <label for="rating">My Rating</label>
+              <input type="number" name="rating" id="rating" max="5">
+            </div>
+          </div>  
+          <div class="row">
+            <div class="input-field col s12 l6">
+              <label for="loaned">Loaned to</label>
+              <input type="text" name="loaned" id="loaned">
+            </div>
+            <div class="input-field col s12 l6">
+              <label class="active" for="loanedDate">Loan Date</label>
+              <input type="text" class="datepicker" name="loanedDate" id="loandate">
+            </div>
+          </div>
+            <button type="submit" class="modal-close waves-effect waves-green btn-flat">Save</button>
+        </form>
+      </div>  
+    </div>
   </div>
-<% } %> 
-<h4>My Rating</h4>
-<p><%= book.rating %>/5 </p>
-
-<% if (book.loaned) { %> 
-  <h4>Loaned to:</h4>
-  <p><%= book.loaned %> </p>
-  
-<% } %>  --> 
-
-<!-- <p>Loaned Date:</p>
-<p><%= book.loanedDate %> </p> -->
-
-
-</div>
 </main>
