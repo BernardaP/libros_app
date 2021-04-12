@@ -44,16 +44,16 @@ The user has the ability to delete a book from the library.
 
 ## Wireframes
 
-[Home Page] (https://trello-attachments.s3.amazonaws.com/606a43183390f203a249fab2/6073bbb12eb15c42f6f35c4b/ca01f754c6f0b69b087b75a6da3f3fcd/Screen_Shot_2021-04-05_at_1.57.51_AM.png)
+![Home Page] (https://trello-attachments.s3.amazonaws.com/606a43183390f203a249fab2/6073bbb12eb15c42f6f35c4b/ca01f754c6f0b69b087b75a6da3f3fcd/Screen_Shot_2021-04-05_at_1.57.51_AM.png)
 
-[Library Page] (https://trello-attachments.s3.amazonaws.com/606a43183390f203a249fab2/6073bbb12eb15c42f6f35c4b/d1c23f566b81681964a64f113aecb784/Screen_Shot_2021-04-05_at_2.31.41_AM.png)
+![Library Page] (https://trello-attachments.s3.amazonaws.com/606a43183390f203a249fab2/6073bbb12eb15c42f6f35c4b/d1c23f566b81681964a64f113aecb784/Screen_Shot_2021-04-05_at_2.31.41_AM.png)
 
-[Book Page] (https://trello-attachments.s3.amazonaws.com/606a43183390f203a249fab2/6073bbb12eb15c42f6f35c4b/f047456f3f0149910fd24f285f0c0a77/Screen_Shot_2021-04-05_at_2.51.09_AM.png)
+![Book Page] (https://trello-attachments.s3.amazonaws.com/606a43183390f203a249fab2/6073bbb12eb15c42f6f35c4b/f047456f3f0149910fd24f285f0c0a77/Screen_Shot_2021-04-05_at_2.51.09_AM.png)
 
-[Add Book Page] (https://trello-attachments.s3.amazonaws.com/606a43183390f203a249fab2/6073bbb12eb15c42f6f35c4b/ab44f34e707ccaf9a03fa483ca935c00/Screen_Shot_2021-04-05_at_2.22.10_AM.png)
+![Add Book Page] (https://trello-attachments.s3.amazonaws.com/606a43183390f203a249fab2/6073bbb12eb15c42f6f35c4b/ab44f34e707ccaf9a03fa483ca935c00/Screen_Shot_2021-04-05_at_2.22.10_AM.png)
 
 ## ERD
-[Models and Associations] (https://trello-attachments.s3.amazonaws.com/606a43183390f203a249fab2/6073bd12c24bf86db8991e0c/c9d2bcc6f85166868919e0586fe4f00f/libros_app_(1).png)
+![Models and Associations] (https://trello-attachments.s3.amazonaws.com/606a43183390f203a249fab2/6073bd12c24bf86db8991e0c/c9d2bcc6f85166868919e0586fe4f00f/libros_app_(1).png)
 
 ## Future Features
 - Organize the library alphabetically by genre/category, by title, or by author.
