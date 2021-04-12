@@ -41,9 +41,9 @@ module.exports = {
 
     await queryInterface.bulkDelete('users', null, {truncate: true, cascade: true, restartIdentity: true});
     const bulkUsers = await queryInterface.bulkInsert('users', [
-      { email: 'bernims6@gmail.com',
-      name: 'Bernada Pierce',
-      password: bcrypt.hashSync('BernardaPierce', 12),      
+      { email: 'test@gmail.com',
+      name: 'James Doe',
+      password: bcrypt.hashSync('JamesDoe', 12),      
       createdAt: new Date(),
       updatedAt: new Date()
       }

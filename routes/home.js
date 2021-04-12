@@ -14,11 +14,10 @@ router.get('/', function(req, res) {
   })
   .then(function(apiResponse) {
     const books = apiResponse.data;
-    console.log(books)
     res.render('home', { books: books.items });
   })
   .catch(function(error){
-    console.log(error)
+    req.flash('error', error.message)
     res.send('Error!')
   })
 });
