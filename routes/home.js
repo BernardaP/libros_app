@@ -7,26 +7,19 @@ const axios = require('axios')
 //Routes
 //GET - / 
 router.get('/', function(req, res) {
-  // console.log(req.query)
-  // const search_term = "Double cross"
-  // const apiUrl = 'https://www.googleapis.com/books/v1/volumes';
-  // Use request to call the API
   axios.get(process.env.API_URL, { 
     params: {
-      q: req.query.title || "a dog's purpose"
+      q: req.query.title || "the institute"
     }
-
   })
   .then(function(apiResponse) {
     const books = apiResponse.data;
     console.log(books)
-    // res.send('done')
     res.render('home', { books: books.items });
-
   })
   .catch(function(error){
-      console.log(error)
-      res.send('Error!')
+    console.log(error)
+    res.send('Error!')
   })
 });
 
