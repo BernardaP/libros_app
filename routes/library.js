@@ -33,7 +33,6 @@ router.get('/:id', function(req, res) {
   })
   .then((foundBook) => {
     if (!foundBook) throw Error()
-    console.log("===------+++", foundBook)
     res.render('library/show.ejs', { book: foundBook})
   })
   .catch(function(error){
