@@ -1,31 +1,25 @@
-<!-- <a href="/home">Add a Book</a> -->
+
 <% let num_books = (user.books.length) %> 
 <main class="bookshelf">
   <div id="overlay"></div>
   <div class= "container">
-
-
-
     <div class="row library">
       <div class="row white-text library-header">
-
+        <div class="col s12 l7 ">
+          <h1><%= user.name %>'s Library </h1>  
+        </div>
+        <div class="col s7 l3">
+          <p>You have <span class="number"><%= num_books %></span> books </p>
+        </div>
+        <div class="col s5 l2">
+          <a href="/home" class="btn-floating btn-large waves-effect waves-light red btn tooltipped" data-position="bottom" data-tooltip="Add a Book"><i class="material-icons">add</i></a>
+        </div>
+      </div>
       
-      <div class="col s12 l7 ">
-        <h1><%= user.name %>'s Library </h1>
-        
-      </div>
-      <div class="col s7 l3">
-        <p>You have <%= num_books %> books </p>
-      </div>
-      <div class="col s5 l2">
-        <a href="/home" class="btn-floating btn-large waves-effect waves-light red btn tooltipped" data-position="bottom" data-tooltip="Add a Book"><i class="material-icons">add</i></a>
-
-      </div>
-    </div>
       <div class="col white-text s12">
         <p>Yes, your entire library of books at your finger tips. Can’t remember how your felt about that book you read a while ago? Check out your review, rating and refresh your memory, you can’t seem to find a book you are certain you have? No problem Libros is here to help and make it easy and simple.</p>
-
       </div>
+
       <% if (user.books.length < 1) {%> 
         <h5 class="library-message">Library is empty</h5>  
       <% } else { %>
@@ -51,30 +45,27 @@
               <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
                 <h3><%= book.title %></h3>
+                
                 <% if ( book.author) {%> 
                   <p>By <%= book.author.firstName %></p>
                 <% } %> 
                 
                 <p>Rating: <%= book.rating %>/5 </p>
+                
                 <% if ( book.loaned) { %> 
                   <p class="red-text">Book loaned: YES</p>
                   <% } else { %> 
-                  <p>Book loaned: NO</p>
-                  
+                  <p>Book loaned: NO</p> 
                 <% } %>  
+                
                 <p><a href="/library/<%= book.id %>">More Book Details</a></p>
               </div>
             </div>
           </div>
-
         <% }) %>   
       <% } %> 
     </div>
-
   </div>
-
-
-
   </div>
 </main>
 
