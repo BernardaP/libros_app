@@ -44,7 +44,7 @@ The user has the ability to delete a book from the library.
 
 ## Wireframes
 
-[Home Page](https://trello-attachments.s3.amazonaws.com/606a43183390f203a249fab2/6073bbb12eb15c42f6f35c4b/ca01f754c6f0b69b087b75a6da3f3fcd/Screen_Shot_2021-04-05_at_1.57.51_AM.png)
+![Home Page](https://trello-attachments.s3.amazonaws.com/606a43183390f203a249fab2/6073bbb12eb15c42f6f35c4b/ca01f754c6f0b69b087b75a6da3f3fcd/Screen_Shot_2021-04-05_at_1.57.51_AM.png)
 
 [Library Page](https://trello-attachments.s3.amazonaws.com/606a43183390f203a249fab2/6073bbb12eb15c42f6f35c4b/d1c23f566b81681964a64f113aecb784/Screen_Shot_2021-04-05_at_2.31.41_AM.png)
 
