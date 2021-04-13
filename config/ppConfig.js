@@ -25,7 +25,7 @@ passport.use(new LocalStrategy({
   passwordField: 'password'
 }, (email, password, cb) => {
 
-  console.log('----- IN STRATEGY CB USER FUNCTION', email, password)
+  
 
   // see if the user exists
   db.user.findOne({
